@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+import Card from "./components/Card";
+
+class App extends Component {
+  state = {
+    fontInfo: [
+      { fontName: "Roboto", fontAuthor: "Christian Robertson", fontClass: "roboto" },
+      { fontName: "Odibee Sans", fontAuthor: "James Barnard", fontClass: "odibeeSans" },
+      { fontName: "Open Sans", fontAuthor: "Steve Matteson", fontClass: "openSans" },
+      { fontName: "Sriracha", fontAuthor: "Cadson Demak", fontClass: "sriracha" }
+    ],
+    text: "Almost before we knew it, we had left the ground."
+  };
+
+  render() {
+    return (
+      <div className="container">
+        {this.state.fontInfo.map((font, index) => {
+          return <Card key={index} fontInfo={font} text={this.state.text} />;
+        })}
+      </div>
+    );
+  }
 }
 
 export default App;
