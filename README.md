@@ -6,4 +6,4 @@ Students will need to fork this repo and clone it to their machine.
 
 Starting state:
 
-![./src/assets/gfont-start.png]
+![/assets/gfont-start.png]
