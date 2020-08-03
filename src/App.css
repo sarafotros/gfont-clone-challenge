@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Odibee+Sans|Open+Sans|Roboto|Sriracha&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Odibee+Sans|Open+Sans|Roboto|Sriracha&display=swap');
 
 .container {
   width: 100vw;
@@ -7,16 +7,16 @@
 }
 
 .roboto {
-  font-family: "Roboto";
+  font-family: 'Roboto';
 }
 
 .openSans {
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
 }
 
 .odibeeSans {
-  font-family: "Odibee Sans";
+  font-family: 'Odibee Sans';
 }
 .sriracha {
-  font-family: "Sriracha";
+  font-family: 'Sriracha';
 }
