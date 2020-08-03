@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Odibee+Sans|Open+Sans|Roboto|Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Red+Rose|Oswald|Lato|Mulish|Montserrat|Odibee+Sans|Open+Sans|Roboto|Recursive|Sriracha&display=swap');
 
 .container {
   width: 100vw;
@@ -17,6 +17,31 @@
 .odibeeSans {
   font-family: 'Odibee Sans';
 }
+
 .sriracha {
   font-family: 'Sriracha';
+}
+
+.recursive {
+  font-family: 'Recursive';
+}
+
+.montserrat {
+  font-family: 'Montserrat';
+}
+
+.mulish {
+  font-family: 'Mulish';
+}
+
+.lato {
+  font-family: 'Lato';
+}
+
+.oswald {
+  font-family: 'Oswald';
+}
+
+.redRose {
+  font-family: 'Red rose';
 }
