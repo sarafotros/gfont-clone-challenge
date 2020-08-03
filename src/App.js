@@ -9,6 +9,13 @@ class App extends Component {
       { fontName: "Odibee Sans", fontAuthor: "James Barnard", fontClass: "odibeeSans" },
       { fontName: "Open Sans", fontAuthor: "Steve Matteson", fontClass: "openSans" },
       { fontName: "Sriracha", fontAuthor: "Cadson Demak", fontClass: "sriracha" },
+      { fontName:"Recursive", fontAuthor:"Stephen Nixon", fontClass:"recursive" },
+      { fontName:"Mulish", fontAuthor:"Vernon Adams, Cyreal, Jacques Le Bailly", fontClass:"mulish" },
+      { fontName:"Montserrat", fontAuthor:"Julieta Ulanovsky, Sol Matas, Juan Pablo del Peral", fontClass:"montserrat" },
+      { fontName:"Lato", fontAuthor:"Łukasz Dziedzic", fontClass:"lato" },
+      { fontName:"Oswald", fontAuthor:"Vernon Adams, Kalapi Gajjar, Cyreal", fontClass:"oswald" },
+      { fontName:"Red Rose", fontAuthor:"Jaikishan Patel", fontClass:"redRose" },
+    
     ],
     text: "Almost before we knew it, we had left the ground.",
   };
