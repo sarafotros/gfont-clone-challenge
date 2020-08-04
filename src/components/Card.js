@@ -6,6 +6,10 @@ const Card = (props) => {
   let classes = `show-text ${props.fontInfo.fontClass}`;
   const { applyToAllBtn, handleClickApply } = props;
 
+  const cardSelected = () => {
+    props.cssCard(props.id);
+  };
+
   return (
     <div className='card-container'>
       <div className='wrapper'>
@@ -13,7 +17,7 @@ const Card = (props) => {
           <p className='font-name'>{props.fontInfo.fontName}</p>
           <p className='font-author'>{props.fontInfo.fontAuthor}</p>
         </div>
-        <Plus className='plus' />
+        <Plus className='plus' onClick={cardSelected} />
       </div>
       <textarea
         className={classes}
