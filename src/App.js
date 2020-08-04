@@ -133,13 +133,25 @@ class App extends Component {
   };
 
   clickHandlerBtn = () => {
-    console.log(this.state.textAreaInput);
-    console.log(this.state.text);
+    // console.log(this.state.textAreaInput);
+    // console.log(this.state.text);
     let inp = this.state.textAreaInput;
     console.log(inp);
     this.setState({
       text: inp,
     });
+  };
+  clickRestHandler = () => {
+    console.log(this.state.text);
+    let inp = this.state.textAreaInput;
+    this.setState({
+      text: 'Almost before we knew it, we had left the ground.',
+      textAreaInput: inp,
+    });
+  };
+
+  testClickHandle = (index) => {
+    console.log('index', index);
   };
 
   render() {
@@ -155,6 +167,7 @@ class App extends Component {
 
     return (
       <div className='container'>
+        {cardInfo}
         <NavBar
           valueProp={this.state.searchTerm}
           handleSearch={(e) => this.handleSearch(e)}
@@ -170,12 +183,12 @@ class App extends Component {
               textChangeHandlers={(e) => this.handleTextChange(e, index)}
               applyToAllBtn={font}
               handleClickApply={this.clickHandlerBtn}
+              handleClickReset={this.clickRestHandler}
               addBtn={font.addBtn}
+              testClickHandle={() => this.testClickHandle(index)}
             />
           );
         })}
-
-        {cardInfo}
       </div>
     );
   }

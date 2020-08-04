@@ -12,7 +12,7 @@
 }
 .font-name,
 .font-author {
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   margin: 5px;
   font-size: 90%;
   font-weight: 700;
@@ -40,4 +40,8 @@
   height: 20px;
   width: 20px;
   margin-top: 10px;
+}
+.btn-style {
+  display: flex;
+  justify-content: space-evenly;
 }
