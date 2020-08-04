@@ -28,7 +28,7 @@ const Card = (props) => {
         {/* {props.text} */}
       </textarea>
 
-      {applyToAllBtn.addBtn && (
+      {applyToAllBtn && (
         <div className='btn-style'>
           <button onClick={handleClickApply} style={btnStyle}>
             Apply to all

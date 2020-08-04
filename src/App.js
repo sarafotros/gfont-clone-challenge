@@ -13,6 +13,7 @@ class App extends Component {
         fontAuthor: 'Christian Robertson',
         fontClass: 'roboto',
         fontLink: 'Roboto',
+        addBtn: false,
       },
       {
         id: 2,
@@ -20,6 +21,7 @@ class App extends Component {
         fontAuthor: 'James Barnard',
         fontClass: 'odibeeSans',
         fontLink: 'Odibe+Sans',
+        addBtn: false,
       },
       {
         id: 3,
@@ -27,6 +29,7 @@ class App extends Component {
         fontAuthor: 'Steve Matteson',
         fontClass: 'openSans',
         fontLink: 'Open+Sans',
+        addBtn: false,
       },
       {
         id: 4,
@@ -34,6 +37,7 @@ class App extends Component {
         fontAuthor: 'Cadson Demak',
         fontClass: 'sriracha',
         fontLink: 'Sriracha',
+        addBtn: false,
       },
       {
         id: 5,
@@ -41,6 +45,7 @@ class App extends Component {
         fontAuthor: 'Stephen Nixon',
         fontClass: 'recursive',
         fontLink: 'Recursive',
+        addBtn: false,
       },
       {
         id: 6,
@@ -48,6 +53,7 @@ class App extends Component {
         fontAuthor: 'Vernon Adams, Cyreal, Jacques Le Bailly',
         fontClass: 'mulish',
         fontLink: 'Mulish',
+        addBtn: false,
       },
       {
         id: 7,
@@ -55,6 +61,7 @@ class App extends Component {
         fontAuthor: 'Julieta Ulanovsky, Sol Matas, Juan Pablo del Peral',
         fontClass: 'montserrat',
         fontLink: 'Montserrat',
+        addBtn: false,
       },
       {
         id: 8,
@@ -62,6 +69,7 @@ class App extends Component {
         fontAuthor: 'Łukasz Dziedzic',
         fontClass: 'lato',
         fontLink: 'Lato',
+        addBtn: false,
       },
       {
         id: 9,
@@ -69,6 +77,7 @@ class App extends Component {
         fontAuthor: 'Vernon Adams, Kalapi Gajjar, Cyreal',
         fontClass: 'oswald',
         fontLink: 'Oswald',
+        addBtn: false,
       },
       {
         id: 10,
@@ -76,6 +85,7 @@ class App extends Component {
         fontAuthor: 'Jaikishan Patel',
         fontClass: 'redRose',
         fontLink: 'Red+Rose',
+        addBtn: false,
       },
     ],
     text: 'Almost before we knew it, we had left the ground.',
@@ -121,8 +131,6 @@ class App extends Component {
   };
 
   handleTextChange = (e, index) => {
-    // console.log('change');
-    // console.log(index);
     let fontInfoCopy = [...this.state.fontInfo];
     // console.log(fontInfoCopy[index].addBtn);
     fontInfoCopy[index].addBtn = true;
@@ -133,14 +141,13 @@ class App extends Component {
   };
 
   clickHandlerBtn = () => {
-    // console.log(this.state.textAreaInput);
-    // console.log(this.state.text);
     let inp = this.state.textAreaInput;
     console.log(inp);
     this.setState({
       text: inp,
     });
   };
+
   clickRestHandler = () => {
     console.log(this.state.text);
     let inp = this.state.textAreaInput;
@@ -181,7 +188,7 @@ class App extends Component {
               text={this.state.text}
               cssCard={this.toggleHandler}
               textChangeHandlers={(e) => this.handleTextChange(e, index)}
-              applyToAllBtn={font}
+              applyToAllBtn={font.addBtn}
               handleClickApply={this.clickHandlerBtn}
               handleClickReset={this.clickRestHandler}
               addBtn={font.addBtn}
