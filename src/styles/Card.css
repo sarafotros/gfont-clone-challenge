@@ -11,7 +11,6 @@
   margin: 10px 0;
 }
 .font-name,
-
 .font-author {
   font-family: "Open Sans";
   margin: 5px;
@@ -25,7 +24,7 @@
 }
 
 .show-text {
-  width: 300px;
+  width: 270px;
   flex-grow: 1;
   border: none;
   outline: none;
