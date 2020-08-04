@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Red+Rose|Oswald|Lato|Mulish|Montserrat|Odibee+Sans|Open+Sans|Roboto|Recursive|Sriracha&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Red+Rose|Oswald|Lato|Mulish|Montserrat|Odibee+Sans|Open+Sans|Roboto|Recursive|Sriracha&display=swap');
 
 .container {
   width: 100vw;
@@ -7,19 +7,19 @@
 }
 
 .roboto {
-  font-family: "Roboto";
+  font-family: 'Roboto';
 }
 
 .openSans {
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
 }
 
 .odibeeSans {
-  font-family: "Odibee Sans";
+  font-family: 'Odibee Sans';
 }
 
 .sriracha {
-  font-family: "Sriracha";
+  font-family: 'Sriracha';
 }
 
 .recursive {
@@ -27,21 +27,21 @@
 }
 
 .montserrat {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
 }
 
 .mulish {
-  font-family: "Mulish";
+  font-family: 'Mulish';
 }
 
 .lato {
-  font-family: "Lato";
+  font-family: 'Lato';
 }
 
 .oswald {
-  font-family: "Oswald";
+  font-family: 'Oswald';
 }
 
 .redRose {
-  font-family: "Red rose" ;
+  font-family: 'Red rose';
 }

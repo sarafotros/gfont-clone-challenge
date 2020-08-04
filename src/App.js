@@ -1,12 +1,16 @@
-import React, { Component } from "react";
-import "./App.css";
-import Card from "./components/Card";
+
+import React, { Component } from 'react';
+import './App.css';
+import Card from './components/Card';
+import NavBar from './components/NavBar';
 import CssInfo from "./components/CssInfo";
+
 
 class App extends Component {
   state = {
     fontInfo: [
       {
+
         id: 1,
         fontName: "Roboto",
         fontAuthor: "Christian Robertson",
@@ -80,6 +84,8 @@ class App extends Component {
     text: "Almost before we knew it, we had left the ground.",
     showDrawer: false,
     cardId: "",
+     searchTerm: '',
+    filteredFontInfo: [],
   };
 
   toggleHandler = (id) => {
@@ -88,6 +94,34 @@ class App extends Component {
       showDrawer: !temp,
       cardId: id,
     });
+
+  componentDidMount = () => {
+    this.setState({
+      filteredFontInfo: [...this.state.fontInfo],
+    });
+  };
+
+  handleSearch = (e) => {
+    // console.log(e.target.value);
+    let allFontsArr = [...this.state.fontInfo];
+    let filtered = allFontsArr.filter((font) => {
+      return font.fontName
+        .toLocaleLowerCase()
+        .includes(this.state.searchTerm.toLocaleLowerCase());
+    });
+
+    if (e.target.value !== '') {
+      this.setState({
+        searchTerm: e.target.value,
+        filteredFontInfo: filtered,
+      });
+    } else {
+      this.setState({
+        filteredFontInfo: allFontsArr,
+        searchTerm: e.target.value,
+      });
+    }
+
   };
 
   render() {
@@ -102,20 +136,16 @@ class App extends Component {
     }
 
     return (
-      <div className="container">
-        {" "}
-        {this.state.fontInfo.map((font, index) => {
-          return (
-            <Card
-              id={font.id}
-              key={index}
-              fontInfo={font}
-              text={this.state.text}
-              cssCard={this.toggleHandler}
-            />
-          );
-        })}{" "}
-        {cardInfo}{" "}
+
+      <div className='container'>
+        <NavBar
+          valueProp={this.state.searchTerm}
+          handleSearch={(e) => this.handleSearch(e)}
+        />
+        {this.state.filteredFontInfo.map((font, index) => {
+          return <Card key={index} id={font.id} fontInfo={font} text={this.state.text}   cssCard={this.toggleHandler}/>;
+        })} {cardInfo}
+
       </div>
     );
   }
