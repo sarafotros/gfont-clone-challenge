@@ -124,6 +124,28 @@ class App extends Component {
 
   };
 
+  handleTextChange = (e, index) => {
+    // console.log('change');
+    // console.log(index);
+    let fontInfoCopy = [...this.state.fontInfo];
+    // console.log(fontInfoCopy[index].addBtn);
+    fontInfoCopy[index].addBtn = true;
+    this.setState({
+      textAreaInput: e.target.value,
+      fontInfo: fontInfoCopy,
+    });
+  };
+
+  clickHandlerBtn = () => {
+    console.log(this.state.textAreaInput);
+    console.log(this.state.text);
+    let inp = this.state.textAreaInput;
+    console.log(inp);
+    this.setState({
+      text: inp,
+    });
+  };
+
   render() {
     let cardInfo = null;
     if (this.state.showDrawer === true) {
@@ -143,8 +165,21 @@ class App extends Component {
           handleSearch={(e) => this.handleSearch(e)}
         />
         {this.state.filteredFontInfo.map((font, index) => {
-          return <Card key={index} id={font.id} fontInfo={font} text={this.state.text}   cssCard={this.toggleHandler}/>;
-        })} {cardInfo}
+          return (
+            <Card
+              key={index}
+              fontInfo={font}
+              text={this.state.text}
+              cssCard={this.toggleHandler}
+              textChangeHandlers={(e) => this.handleTextChange(e, index)}
+              applyToAllBtn={font}
+              handleClickApply={this.clickHandlerBtn}
+              addBtn={font.addBtn}
+            />
+          );
+        })}
+          
+        {cardInfo}
 
       </div>
     );
