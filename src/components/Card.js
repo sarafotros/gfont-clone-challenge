@@ -29,7 +29,10 @@ const Card = (props) => {
         )}
       </div>
       {cssInfo ? (
-        <CssInfo />
+        <CssInfo
+          link={props.fontInfo.fontLink}
+          fontFam={props.fontInfo.fontName}
+        />
       ) : (
         <>
           <textarea
