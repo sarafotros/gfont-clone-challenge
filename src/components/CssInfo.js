@@ -1,14 +1,14 @@
-import React from "react";
-import "../styles/CssInfo.css";
+import React from 'react';
+import '../styles/CssInfo.css';
 
 const CssInfo = (props) => {
   return (
-    <div className="css-container">
-      <section className="info-wrapper">
-        <section className="info">
-          <label className="font-family">
-            {" "}
-            To embed a font, copy the code into the &lt;head&gt; of your html{" "}
+    <div className='css-container'>
+      <section className='info-wrapper'>
+        <section className='info'>
+          <label className='font-family'>
+            {' '}
+            To embed a font, copy the code into the &lt;head&gt; of your html{' '}
           </label>
           <form>
             &lt;style&gt;
@@ -17,11 +17,11 @@ const CssInfo = (props) => {
             {props.link}&amp;display=swap&quot;);
             <br />
             &lt;style&gt;
-          </form>{" "}
+          </form>{' '}
         </section>
 
-        <section className="info">
-          <label className="font-link"> CSS rules to specify families</label>
+        <section className='info'>
+          <label className='font-link'> CSS rules to specify families</label>
           <form>font-family: '{props.fontFam}'</form>
         </section>
       </section>
