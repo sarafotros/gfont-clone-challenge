@@ -1,14 +1,19 @@
 import React from 'react';
 import '../styles/Card.css';
 import { ReactComponent as Plus } from '../assets/plus.svg';
+import IndeterminateCheckBoxIcon from '@material-ui/icons/IndeterminateCheckBox';
+import CssInfo from './CssInfo';
 
 const Card = (props) => {
   let classes = `show-text ${props.fontInfo.fontClass}`;
-  const { addBtn, handleClickApply, handleClickReset } = props;
-
-  const cardSelected = () => {
-    props.cssCard(props.id);
-  };
+  const {
+    addBtn,
+    handleClickApply,
+    handleClickReset,
+    plusClicked,
+    cssInfo,
+    minusClicked,
+  } = props;
 
   return (
     <div className='card-container'>
@@ -17,26 +22,33 @@ const Card = (props) => {
           <p className='font-name'>{props.fontInfo.fontName}</p>
           <p className='font-author'>{props.fontInfo.fontAuthor}</p>
         </div>
-        <Plus className='plus' onClick={props.testClickHandle} />
+        {cssInfo ? (
+          <IndeterminateCheckBoxIcon onClick={minusClicked} />
+        ) : (
+          <Plus className='plus' onClick={plusClicked} />
+        )}
       </div>
-      <textarea
-        className={classes}
-        type='text'
-        onChange={props.textChangeHandlers}
-        value={addBtn ? undefined : props.text}
-      >
-        {/* {props.text} */}
-      </textarea>
-
-      {addBtn && (
-        <div className='btn-style'>
-          <button onClick={handleClickApply} style={btnStyle}>
-            Apply to all
-          </button>
-          <button onClick={handleClickReset} style={btnStyle}>
-            Reset
-          </button>
-        </div>
+      {cssInfo ? (
+        <CssInfo />
+      ) : (
+        <>
+          <textarea
+            className={classes}
+            type='text'
+            onChange={props.textChangeHandlers}
+            value={addBtn ? undefined : props.text}
+          ></textarea>
+          {addBtn && (
+            <div className='btn-style'>
+              <button onClick={handleClickApply} style={btnStyle}>
+                Apply to all
+              </button>
+              <button onClick={handleClickReset} style={btnStyle}>
+                Reset
+              </button>
+            </div>
+          )}
+        </>
       )}
     </div>
   );
