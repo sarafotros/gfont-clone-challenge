@@ -14,6 +14,7 @@ class App extends Component {
         fontClass: 'roboto',
         fontLink: 'Roboto',
         addBtn: false,
+        cssInfo: false,
       },
       {
         id: 2,
@@ -22,6 +23,7 @@ class App extends Component {
         fontClass: 'odibeeSans',
         fontLink: 'Odibe+Sans',
         addBtn: false,
+        cssInfo: false,
       },
       {
         id: 3,
@@ -30,6 +32,7 @@ class App extends Component {
         fontClass: 'openSans',
         fontLink: 'Open+Sans',
         addBtn: false,
+        cssInfo: false,
       },
       {
         id: 4,
@@ -38,6 +41,7 @@ class App extends Component {
         fontClass: 'sriracha',
         fontLink: 'Sriracha',
         addBtn: false,
+        cssInfo: false,
       },
       {
         id: 5,
@@ -46,6 +50,7 @@ class App extends Component {
         fontClass: 'recursive',
         fontLink: 'Recursive',
         addBtn: false,
+        cssInfo: false,
       },
       {
         id: 6,
@@ -54,6 +59,7 @@ class App extends Component {
         fontClass: 'mulish',
         fontLink: 'Mulish',
         addBtn: false,
+        cssInfo: false,
       },
       {
         id: 7,
@@ -62,6 +68,7 @@ class App extends Component {
         fontClass: 'montserrat',
         fontLink: 'Montserrat',
         addBtn: false,
+        cssInfo: false,
       },
       {
         id: 8,
@@ -70,6 +77,7 @@ class App extends Component {
         fontClass: 'lato',
         fontLink: 'Lato',
         addBtn: false,
+        cssInfo: false,
       },
       {
         id: 9,
@@ -78,6 +86,7 @@ class App extends Component {
         fontClass: 'oswald',
         fontLink: 'Oswald',
         addBtn: false,
+        cssInfo: false,
       },
       {
         id: 10,
@@ -86,10 +95,10 @@ class App extends Component {
         fontClass: 'redRose',
         fontLink: 'Red+Rose',
         addBtn: false,
+        cssInfo: false,
       },
     ],
     text: 'Almost before we knew it, we had left the ground.',
-    showDrawer: false,
     cardId: '',
     searchTerm: '',
     filteredFontInfo: [],
@@ -102,14 +111,12 @@ class App extends Component {
   };
 
   handleSearch = (e) => {
-    // console.log(e.target.value);
     let allFontsArr = [...this.state.fontInfo];
     let filtered = allFontsArr.filter((font) => {
       return font.fontName
         .toLocaleLowerCase()
         .includes(this.state.searchTerm.toLocaleLowerCase());
     });
-
     if (e.target.value !== '') {
       this.setState({
         searchTerm: e.target.value,
@@ -152,32 +159,27 @@ class App extends Component {
     });
   };
 
-  toggleHandler = (id) => {
-    let temp = this.state.showDrawer;
+  handleCssDisplay = (e, index) => {
+    let fontInfoCopy = [...this.state.fontInfo];
+    fontInfoCopy.map((font) => (font.cssInfo = false));
+    fontInfoCopy[index].cssInfo = true;
     this.setState({
-      showDrawer: !temp,
-      cardId: id,
+      fontInfo: fontInfoCopy,
     });
   };
 
-  testClickHandle = (index) => {
-    console.log('index', index);
+  handleResetCssInfo = (e, index) => {
+    console.log(index);
+    let fontInfoCopy = [...this.state.fontInfo];
+    fontInfoCopy[index].cssInfo = false;
+    this.setState({
+      fontInfo: fontInfoCopy,
+    });
   };
 
   render() {
-    let cardInfo = null;
-    if (this.state.showDrawer === true) {
-      const selectedCard = this.state.fontInfo.find((font) => {
-        return font.id === this.state.cardId;
-      });
-      cardInfo = (
-        <CssInfo fontFam={selectedCard.fontName} link={selectedCard.fontLink} />
-      );
-    }
-
     return (
       <div className='container'>
-        {cardInfo}
         <NavBar
           valueProp={this.state.searchTerm}
           handleSearch={(e) => this.handleSearch(e)}
@@ -194,7 +196,11 @@ class App extends Component {
               handleClickApply={() => this.clickHandlerBtn()}
               handleClickReset={this.clickResetHandler}
               addBtn={font.addBtn}
-              testClickHandle={() => this.testClickHandle(index)}
+              plusClicked={(e) => {
+                this.handleCssDisplay(e, index);
+              }}
+              minusClicked={(e) => this.handleResetCssInfo(e, index)}
+              cssInfo={font.cssInfo}
             />
           );
         })}
