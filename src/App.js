@@ -141,17 +141,14 @@ class App extends Component {
 
   clickHandlerBtn = () => {
     let inp = this.state.textAreaInput;
-    console.log(inp);
     this.setState({
       text: inp,
     });
   };
 
   clickResetHandler = () => {
-    console.log(this.state.text);
     let fontInfoCopy = [...this.state.fontInfo];
     fontInfoCopy.map((font) => (font.addBtn = false));
-    // let inp = this.state.textAreaInput;
     this.setState({
       text: 'Almost before we knew it, we had left the ground.',
       textAreaInput: '',
@@ -168,7 +165,6 @@ class App extends Component {
   };
 
   handleResetCssInfo = (e, index) => {
-    console.log(index);
     let fontInfoCopy = [...this.state.fontInfo];
     fontInfoCopy[index].cssInfo = false;
     this.setState({
