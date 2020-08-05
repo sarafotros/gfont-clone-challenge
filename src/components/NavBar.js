@@ -8,7 +8,7 @@ export default function NavBar({ valueProp, handleSearch }) {
       <SearchIcon style={{ color: 'grey', marginRight: 10 }} />
       <input
         className='input'
-        placeholder='Search'
+        placeholder='Search Fonts'
         type='text'
         value={valueProp}
         onChange={handleSearch}

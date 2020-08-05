@@ -95,13 +95,6 @@ class App extends Component {
     filteredFontInfo: [],
   };
 
-  toggleHandler = (id) => {
-    let temp = this.state.showDrawer;
-    this.setState({
-      showDrawer: !temp,
-      cardId: id,
-    });
-  };
   componentDidMount = () => {
     this.setState({
       filteredFontInfo: [...this.state.fontInfo],
@@ -125,14 +118,14 @@ class App extends Component {
     } else {
       this.setState({
         filteredFontInfo: allFontsArr,
-        searchTerm: e.target.value,
+        searchTerm: '',
       });
     }
   };
 
   handleTextChange = (e, index) => {
     let fontInfoCopy = [...this.state.fontInfo];
-    // console.log(fontInfoCopy[index].addBtn);
+    fontInfoCopy.map((font) => (font.addBtn = false));
     fontInfoCopy[index].addBtn = true;
     this.setState({
       textAreaInput: e.target.value,
@@ -148,12 +141,22 @@ class App extends Component {
     });
   };
 
-  clickRestHandler = () => {
+  clickResetHandler = () => {
     console.log(this.state.text);
-    let inp = this.state.textAreaInput;
+    let fontInfoCopy = [...this.state.fontInfo];
+    fontInfoCopy.map((font) => (font.addBtn = false));
+    // let inp = this.state.textAreaInput;
     this.setState({
       text: 'Almost before we knew it, we had left the ground.',
-      textAreaInput: inp,
+      textAreaInput: '',
+    });
+  };
+
+  toggleHandler = (id) => {
+    let temp = this.state.showDrawer;
+    this.setState({
+      showDrawer: !temp,
+      cardId: id,
     });
   };
 
@@ -188,9 +191,8 @@ class App extends Component {
               text={this.state.text}
               cssCard={this.toggleHandler}
               textChangeHandlers={(e) => this.handleTextChange(e, index)}
-              applyToAllBtn={font.addBtn}
-              handleClickApply={this.clickHandlerBtn}
-              handleClickReset={this.clickRestHandler}
+              handleClickApply={() => this.clickHandlerBtn()}
+              handleClickReset={this.clickResetHandler}
               addBtn={font.addBtn}
               testClickHandle={() => this.testClickHandle(index)}
             />

@@ -4,7 +4,7 @@ import { ReactComponent as Plus } from '../assets/plus.svg';
 
 const Card = (props) => {
   let classes = `show-text ${props.fontInfo.fontClass}`;
-  const { applyToAllBtn, handleClickApply, handleClickReset } = props;
+  const { addBtn, handleClickApply, handleClickReset } = props;
 
   const cardSelected = () => {
     props.cssCard(props.id);
@@ -23,12 +23,12 @@ const Card = (props) => {
         className={classes}
         type='text'
         onChange={props.textChangeHandlers}
-        value={props.addBtn ? undefined : props.text}
+        value={addBtn ? undefined : props.text}
       >
         {/* {props.text} */}
       </textarea>
 
-      {applyToAllBtn && (
+      {addBtn && (
         <div className='btn-style'>
           <button onClick={handleClickApply} style={btnStyle}>
             Apply to all
