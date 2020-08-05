@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Card from './components/Card';
 import NavBar from './components/NavBar';
-import CssInfo from './components/CssInfo';
 
 class App extends Component {
   state = {
